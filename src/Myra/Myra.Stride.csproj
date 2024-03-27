@@ -1,10 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <DefineConstants>$(DefineConstants);STRIDE</DefineConstants>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <PackageId>Myra.Stride</PackageId>
     <AssemblyName>Myra</AssemblyName>
     <OutputPath>bin\Stride\$(Configuration)</OutputPath>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
@@ -23,6 +24,5 @@
     <PackageReference Include="Stride.Engine" Version="$(StrideVersion)" />
     <PackageReference Include="XNAssets.Stride" Version="$(XNAssetsVersion)" />
     <PackageReference Include="FontStashSharp.Stride" Version="$(FontStashSharpVersion)" />
-    <PackageReference Include="info.lundin.math.dll" Version="$(InfoLundinMathVersion)" />
   </ItemGroup>  
 </Project>
