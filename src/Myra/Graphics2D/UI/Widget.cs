@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.ComponentModel;
 using Myra.Graphics2D.UI.Styles;
 using Myra.Utility;
@@ -605,7 +605,7 @@ namespace Myra.Graphics2D.UI
 		/// </summary>
 		[XmlIgnore]
 		[Browsable(false)]
-		public Layout2D Layout2d { get; set; } = Layout2D.NullLayout;
+		public ILayout2D Layout2D { get; set; } = NullLayout2D.Instance;
 
 		[Category("Appearance")]
 		public IBrush Background { get; set; }

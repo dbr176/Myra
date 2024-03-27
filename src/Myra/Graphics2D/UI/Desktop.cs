@@ -39,6 +39,7 @@ namespace Myra.Graphics2D.UI
 		private Widget _focusedKeyboardWidget;
 		private readonly List<Widget> _widgetsCopy = new List<Widget>();
 		private Widget _previousKeyboardFocus;
+
 #if MONOGAME || PLATFORM_AGNOSTIC
 		public bool HasExternalTextInput = false;
 #endif
@@ -654,14 +655,23 @@ namespace Myra.Graphics2D.UI
 
 		private void UpdateRecursiveLayout(IEnumerable<Widget> widgets)
 		{
-			foreach (var i in widgets)
+			foreach (var currentWidget in widgets)
 			{
-				if (!i.Layout2d.Nullable)
+				var currentLayout = currentWidget.Layout2D;
+
+				if (currentWidget.Layout2D.IsActive)
 				{
-					ExpressionParser.Parse(i, ChildrenCopy);
+					if (currentLayout.TryCalculateX(currentWidget, out var x))
+						currentWidget.Left = x;
+					if (currentLayout.TryCalculateY(currentWidget, out var y))
+						currentWidget.Top = y;
+					if (currentLayout.TryCalculateWidth(currentWidget, out var width))
+						currentWidget.Width = width;
+					if (currentLayout.TryCalculateHeight(currentWidget, out var height))
+						currentWidget.Height = height;
 				}
 
-				UpdateRecursiveLayout(i.ChildrenCopy);
+				UpdateRecursiveLayout(currentWidget.ChildrenCopy);
 			}
 		}
 
