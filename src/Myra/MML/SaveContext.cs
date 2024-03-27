@@ -10,7 +10,6 @@ using System.Linq;
 using Myra.Graphics2D;
 using FontStashSharp;
 using FontStashSharp.RichText;
-using info.lundin.math;
 
 #if MONOGAME || FNA
 using Microsoft.Xna.Framework;
