@@ -1420,7 +1420,7 @@ namespace Myra.Graphics2D.UI
 			Widget result;
 			if (constructor != null)
 			{
-				result = (Widget)constructor.Invoke(new object[0]);
+				result = (Widget)constructor.Invoke([]);
 			}
 			else
 			{

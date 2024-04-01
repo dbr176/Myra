@@ -6,12 +6,13 @@ namespace Myra.Graphics2D.UI.Properties
     {
         public record struct Context(Widget? Parent, Widget Current);
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public Func<Context, double>? Height { get; set; }
         public Func<Context, double>? Width { get; set; }
         public Func<Context, double>? X { get; set; }
         public Func<Context, double>? Y { get; set; }
+        public Func<Context, double>? Z { get; set; }
 
         public bool TryCalculateHeight(Widget widget, out int height)
         {
@@ -58,6 +59,18 @@ namespace Myra.Graphics2D.UI.Properties
 
             y = (int)Y(new Context(widget.Parent, widget));
 
+            return true;
+        }
+
+        public bool TryCalculateZ(Widget widget, out int z)
+        {
+            z = default;
+
+            if (Z is null)
+                return false;
+
+            z = (int)Z(new Context(widget.Parent, widget));
+            
             return true;
         }
     }

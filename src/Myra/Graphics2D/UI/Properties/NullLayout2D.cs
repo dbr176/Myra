@@ -31,5 +31,11 @@
             y = default;
             return false;
         }
+
+        public bool TryCalculateZ(Widget widget, out int z)
+        {
+            z = default;
+            return false;
+        }
     }
 }

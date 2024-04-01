@@ -7,22 +7,18 @@
     <OutputPath>bin\Stride\$(Configuration)</OutputPath>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-  
   <ItemGroup>
     <EmbeddedResource Include="Resources\**\*.*" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Remove="Platform\**\*.*" />
-  </ItemGroup>  
-
+  </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Stride.Engine" Version="$(StrideVersion)" />
+    <PackageReference Include="Stride.Engine" Version="4.2.0.2067" />
     <PackageReference Include="XNAssets.Stride" Version="$(XNAssetsVersion)" />
     <PackageReference Include="FontStashSharp.Stride" Version="$(FontStashSharpVersion)" />
-  </ItemGroup>  
+  </ItemGroup>
 </Project>

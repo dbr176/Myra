@@ -13,7 +13,7 @@ using Matrix = System.Numerics.Matrix3x2;
 
 namespace Myra.Graphics2D
 {
-	public struct Transform
+    public struct Transform
 	{
 		public Vector2 Scale { get; private set; }
 		public float Rotation { get; private set; }
