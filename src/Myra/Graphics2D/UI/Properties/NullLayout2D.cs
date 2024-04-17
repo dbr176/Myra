@@ -38,4 +38,37 @@
             return false;
         }
     }
+
+    public abstract class Layout2D<T> : ILayout2D<T>
+        where T : Widget
+    {
+        public bool IsActive => true;
+
+        public virtual bool TryCalculateHeight(T widget, out int height)
+        {
+            height = default;
+            return false;
+        }
+
+        public virtual bool TryCalculateWidth(T widget, out int width)
+        {
+            width = default;
+            return false;
+        }
+
+        public virtual bool TryCalculateX(T widget, out int x)
+        {
+            x = 0; return false;
+        }
+
+        public virtual bool TryCalculateY(T widget, out int y)
+        {
+            y = 0; return false;
+        }
+
+        public virtual bool TryCalculateZ(T widget, out int z)
+        {
+            z = 0; return false;
+        }
+    }
 }
